@@ -50,15 +50,21 @@ export class TodoListComponent implements OnInit {
 
   dialogOpen: boolean = false;
   openDialog(todo: any): void {
+
+    // const dialogRef = this.dialog.open(TodoEditComponent);
+    
+
     if (!this.dialogOpen) {
       this.dialogOpen = true;
       const dialogRef = this.dialog.open(TodoEditComponent, {
         panelClass: 'edit-dialog',
         data: todo,
-        width: '40vw', // Ancho del modal
-        height: '400px',
+        width: '300px', // Ancho del modal
+        height: '370px',
 
       });
+      
+      dialogRef.disableClose = true;
 
       dialogRef.componentInstance.closed.subscribe(result => {
         this.dialogOpen = false
