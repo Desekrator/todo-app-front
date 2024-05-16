@@ -21,8 +21,8 @@
                                     <tr *ngFor="let task of tasks">
                                         <td>{{task.title}}</td>
                                         <td>{{task.description}}</td>
-                                        <td>{{task.status}}</td>
-                                        <td>{{task.priority}}</td>
+                                        <td>{{task.status | priorityTransform }}</td>
+                                        <td>{{task.priority  | priorityTransform }}</td>
                                         <td class="d-flex align-items-center ">
                                             <button [disabled]="dialogOpen" (click)="openDialog(task)" class="btn btn-success d-grid gap-2">EDITAR</button>
                                             <button [disabled]="dialogOpen" (click)="handleRemoveClick(task.id)" type="button"

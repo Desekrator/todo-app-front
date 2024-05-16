@@ -4,6 +4,8 @@ import { TaskService } from '../../services/task.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TodoEditComponent } from '../todo-edit/todo-edit.component';
 import { TaskModel } from "../../model/task.model";
+import { PriorityTransformPipe } from '../../pipes/priority-transform.pipe';
+import { StatusTransformPipe } from '../../pipes/status-transform.pipe';
 
 @Component({
   selector: 'app-todo-list',
@@ -11,7 +13,7 @@ import { TaskModel } from "../../model/task.model";
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css',
   imports: [
-    CommonModule
+    CommonModule, PriorityTransformPipe, StatusTransformPipe
   ]
 })
 export class TodoListComponent implements OnInit {
