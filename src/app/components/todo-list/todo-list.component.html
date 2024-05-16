@@ -1,6 +1,4 @@
 <div class="mcw">
-    <!--navigation here-->
-    <!--main content view-->
     <div class="cv">
         <div>
             <div class="inbox">
@@ -18,10 +16,8 @@
                                         <td><b>Descripcion</b></td>
                                         <td><b>Estatus</b></td>
                                         <td><b>Prioridad</b></td>
-                                        <!-- <td><b>Fecha</b></td> -->
                                         <td><b>Accion</b></td>
                                     </tr>
-                                    <!-- plantear como meter esto en un componente -->
                                     <tr *ngFor="let task of tasks">
                                         <td>{{task.title}}</td>
                                         <td>{{task.description}}</td>
@@ -46,6 +42,3 @@
 
 </div>
 
-
-<!-- <p *ngFor="let todo of todoList"> -->
-<!-- </p> -->

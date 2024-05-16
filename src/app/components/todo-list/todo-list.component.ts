@@ -52,7 +52,7 @@ export class TodoListComponent implements OnInit {
   openDialog(todo: any): void {
 
     // const dialogRef = this.dialog.open(TodoEditComponent);
-    
+
 
     if (!this.dialogOpen) {
       this.dialogOpen = true;
@@ -63,12 +63,17 @@ export class TodoListComponent implements OnInit {
         height: '370px',
 
       });
-      
+
       dialogRef.disableClose = true;
 
       dialogRef.componentInstance.closed.subscribe(result => {
         this.dialogOpen = false
         dialogRef.close();
+      });
+      dialogRef.afterClosed().subscribe(result => {
+
+        this.updateTodos(); // Ordenar la lista por prioridad
+
       });
 
     }

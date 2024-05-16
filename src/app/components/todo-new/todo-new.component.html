@@ -8,33 +8,33 @@
                         <form #todoNewForm="ngForm" (ngSubmit)="onSubmit()" class="requires-validation" novalidate>
 
                             <div class="form-group">
-                                <label>Title</label>
+                                <label>Titulo</label>
                                 <input class="form-control" type="text" name="title" [(ngModel)]="task.title" required>
                             </div>
 
                             <div class="form-group">
-                                <label>Description</label>
+                                <label>Descripción</label>
                                 <textarea class="form-control" type="text" name="description"
                                     [(ngModel)]="task.description" required></textarea>
                             </div>
 
                             <div class="form-group">
-                                <label>Status</label>
+                                <label>Estatus</label>
                                 <select [(ngModel)]="task.status" name="status" class="form-control" required>
-                                    <option selected disabled value="">Select status</option>
-                                    <option value="empty">Empty</option>
-                                    <option value="progress">Progress</option>
-                                    <option value="finished">Finished</option>
+                                    <option selected disabled value="">Selecciona el estatus</option>
+                                    <option value="empty">Vacío</option>
+                                    <option value="progress">En progreso</option>
+                                    <option value="finished">Acabada</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label>Priority</label>
+                                <label>Prioridad</label>
                                 <select [(ngModel)]="task.priority" name="priority" class="form-control" required>
-                                    <option selected disabled value="">Select priority</option>
-                                    <option value="low">Low</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="high">High</option>
+                                    <option selected disabled value="">Selecciona la prioridad</option>
+                                    <option value="low">Baja</option>
+                                    <option value="medium">Media</option>
+                                    <option value="high">Alta</option>
                                 </select>
                             </div>
 

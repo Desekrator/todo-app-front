@@ -29,7 +29,7 @@ export class TodoEditComponent implements OnInit {
   closeDialog(): void {
 
     if (this.task.title == '' || this.task.description == '' || this.task.priority == '' || this.task.status == '') return
-    this.taskService.editTask(this.data);
+    this.taskService.editTask(this.data).subscribe();
     this.closed.emit(true);
 
   }
