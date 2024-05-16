@@ -27,7 +27,7 @@ export class TodoListComponent implements OnInit {
   }
 
   public handleRemoveClick(id: string | number) {
-    if (!this.tasks) return
+    // if (!this.tasks) return
     this.taskService.removeTask(id).subscribe(
       todo => { this.updateTodos() }
     )
@@ -50,9 +50,6 @@ export class TodoListComponent implements OnInit {
 
   dialogOpen: boolean = false;
   openDialog(todo: any): void {
-
-    // const dialogRef = this.dialog.open(TodoEditComponent);
-
 
     if (!this.dialogOpen) {
       this.dialogOpen = true;

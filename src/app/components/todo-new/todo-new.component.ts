@@ -20,20 +20,21 @@ export class TodoNewComponent implements OnInit {
 
   public selectedPriority: string | undefined;
   constructor(
-    private readonly taskService: TaskService,
+    private readonly taskService: TaskService
   ) { }
 
   ngOnInit(): void {
-    this.task = new TaskModel(uuidv4(), '', '', '', '');
+    this.task = new TaskModel('', '', '', '', '');
   }
 
   onSubmit() {
 
     if (this.task.title == '' || this.task.description == '' || this.task.priority == '' || this.task.status == '') return
 
-    const newTodo = new TaskModel(this.task.id, this.task.title, this.task.description, this.task.status, this.task.priority);
+    const newTodo = new TaskModel(uuidv4(), this.task.title, this.task.description, this.task.status, this.task.priority);
 
-    this.taskService.addTask(newTodo).subscribe()
+    this.taskService.addTask(newTodo)
+      .subscribe()
 
   }
 
