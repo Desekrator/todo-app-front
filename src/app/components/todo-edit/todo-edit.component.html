@@ -1,0 +1,45 @@
+<div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Edit Todo</h5>
+    </div>
+    <div class="modal-body">
+      <form>
+
+        <div class="form-group">
+          <label>Title</label>
+          <input class="form-control" type="text" name="title" [(ngModel)]="task.title" required>
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="form-control" type="text" name="name" [(ngModel)]="task.description" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Status</label>
+          <select [(ngModel)]="task.status" name="status" class="form-control" required>
+            <option selected disabled value="">Select status</option>
+            <option value="empty">Empty</option>
+            <option value="progress">Progress</option>
+            <option value="finished">Finished</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Priority</label>
+          <select [(ngModel)]="task.priority" name="priority" class="form-control" required>
+            <option selected disabled value="">Select priority</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button (click)="closeDialog()" type="button" class="btn btn-secondary">Close</button>
+    </div>
+  </div>
+</div>

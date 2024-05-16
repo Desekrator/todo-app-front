@@ -1,0 +1,51 @@
+<div class="mcw">
+    <!--navigation here-->
+    <!--main content view-->
+    <div class="cv">
+        <div>
+            <div class="inbox">
+                <div class="inbox-sb">
+
+                </div>
+                <div class="inbox-bx container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-10">
+                            <table class="table table-stripped">
+                                <tbody>
+                                    <tr>
+                                        <td><b>Titulo</b></td>
+                                        <td><b>Descripcion</b></td>
+                                        <td><b>Estatus</b></td>
+                                        <td><b>Prioridad</b></td>
+                                        <!-- <td><b>Fecha</b></td> -->
+                                        <td><b>Accion</b></td>
+                                    </tr>
+                                    <!-- plantear como meter esto en un componente -->
+                                    <tr *ngFor="let task of tasks">
+                                        <td>{{task.title}}</td>
+                                        <td>{{task.description}}</td>
+                                        <td>{{task.status}}</td>
+                                        <td>{{task.priority}}</td>
+                                        <td class="d-flex align-items-center ">
+                                            <button [disabled]="dialogOpen" (click)="openDialog(task)" class="btn btn-success d-grid gap-2">EDITAR</button>
+                                            <button [disabled]="dialogOpen" (click)="handleRemoveClick(task.id)" type="button"
+                                                class="btn btn-danger d-grid gap-2">ELIMINAR</button>
+
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- <p *ngFor="let todo of todoList"> -->
+<!-- </p> -->
