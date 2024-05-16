@@ -18,19 +18,26 @@
                                         <td><b>Prioridad</b></td>
                                         <td><b>Accion</b></td>
                                     </tr>
+                                    <ng-container *ngIf="tasks.length > 0; else noTasks"></ng-container>
                                     <tr *ngFor="let task of tasks">
                                         <td>{{task.title}}</td>
                                         <td>{{task.description}}</td>
-                                        <td>{{task.status | priorityTransform }}</td>
-                                        <td>{{task.priority  | priorityTransform }}</td>
+                                        <td>{{task.status | statusTransform }}</td>
+                                        <td>{{task.priority | priorityTransform }}</td>
                                         <td class="d-flex align-items-center ">
-                                            <button [disabled]="dialogOpen" (click)="openDialog(task)" class="btn btn-success d-grid gap-2">EDITAR</button>
-                                            <button [disabled]="dialogOpen" (click)="handleRemoveClick(task.id)" type="button"
-                                                class="btn btn-danger d-grid gap-2">ELIMINAR</button>
+                                            <button [disabled]="dialogOpen" (click)="openDialog(task)"
+                                                class="btn btn-success d-grid gap-2">EDITAR</button>
+                                            <button [disabled]="dialogOpen" (click)="handleRemoveClick(task.id)"
+                                                type="button" class="btn btn-danger d-grid gap-2">ELIMINAR</button>
 
                                         </td>
                                     </tr>
 
+                                    <ng-template #noTasks>
+                                        <tr>
+                                            <td colspan="4" class="text-center">No hay tareas disponibles</td>
+                                        </tr>
+                                    </ng-template>
                                 </tbody>
                             </table>
                         </div>
@@ -41,4 +48,3 @@
     </div>
 
 </div>
-

@@ -18,7 +18,7 @@ import { StatusTransformPipe } from '../../pipes/status-transform.pipe';
 })
 export class TodoListComponent implements OnInit {
 
-  tasks: TaskModel[] | undefined;
+  tasks: TaskModel[]=[];
   dialogOpen: boolean = false;
 
   constructor(
