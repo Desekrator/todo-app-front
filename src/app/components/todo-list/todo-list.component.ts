@@ -17,6 +17,7 @@ import { TaskModel } from "../../model/task.model";
 export class TodoListComponent implements OnInit {
 
   tasks: TaskModel[] | undefined;
+  dialogOpen: boolean = false;
 
   constructor(
     private readonly taskService: TaskService,
@@ -27,9 +28,8 @@ export class TodoListComponent implements OnInit {
   }
 
   public handleRemoveClick(id: string | number) {
-    // if (!this.tasks) return
     this.taskService.removeTask(id).subscribe(
-      todo => { this.updateTodos() }
+      () => { this.updateTodos() }
     )
   }
 
@@ -41,41 +41,33 @@ export class TodoListComponent implements OnInit {
           const priorityOrder: { [key: string]: number } = { 'low': 3, 'medium': 2, 'high': 1 };
           return priorityOrder[a.priority] - priorityOrder[b.priority];
         });
-      },
-      error => {
-        console.log("Inicializa el back-end. Error: " + error)
       }
     )
   }
 
-  dialogOpen: boolean = false;
   openDialog(todo: any): void {
 
     if (!this.dialogOpen) {
       this.dialogOpen = true;
-      const dialogRef = this.dialog.open(TodoEditComponent, {
+      const editDialog = this.dialog.open(TodoEditComponent, {
         panelClass: 'edit-dialog',
         data: todo,
-        width: '300px', // Ancho del modal
+        width: '300px',
         height: '370px',
 
       });
 
-      dialogRef.disableClose = true;
+      editDialog.disableClose = true;
 
-      dialogRef.componentInstance.closed.subscribe(result => {
+      editDialog.componentInstance.closed.subscribe(() => {
         this.dialogOpen = false
-        dialogRef.close();
+        editDialog.close();
       });
-      dialogRef.afterClosed().subscribe(result => {
 
-        this.updateTodos(); // Ordenar la lista por prioridad
-
+      editDialog.afterClosed().subscribe(() => {
+        this.updateTodos();
       });
 
     }
-
-
   }
-
 }
